@@ -33,7 +33,7 @@ def input_fn(file_pattern, tf_transform_output, num_epochs, batch_size=64)->tf.d
         reader      = gzip_reader_fn,
         num_epochs  = num_epochs,
         label_key   = transformed_name(LABEL_KEY)
-    ).repeat()
+    )
 
     return dataset
 
@@ -118,8 +118,8 @@ def run_fn(fn_args: FnArgs) -> None:
         x = train_set,
         validation_data = val_set,
         callbacks = [tensorboard_callback, es, mc],
-        steps_per_epoch = 1000,
-        validation_steps = 1000,
+        steps_per_epoch = 100,
+        validation_steps = 100,
         epochs = 10
     )
 
